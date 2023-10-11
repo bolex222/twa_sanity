@@ -1,11 +1,11 @@
 import {Rule, SchemaValidationValue} from 'sanity'
-import { EarthGlobeIcon } from '@sanity/icons'
+import { TranslateIcon } from '@sanity/icons'
 
 export default {
   name: 'lang',
   type: 'document',
   title: 'Lang',
-  icon: EarthGlobeIcon,
+  icon: TranslateIcon,
   fields: [
     {
       name: 'title',
@@ -14,11 +14,11 @@ export default {
       validation: (rule: Rule): SchemaValidationValue => rule.required()
     },
     {
-      name: 'slug',
-      type: 'slug',
-      title: 'Slug',
+      name: 'url',
+      type: 'reference',
+      to: [{type: 'urlPath'}],
+      title: 'Url',
       validation: (rule: Rule): SchemaValidationValue => rule.required(),
-      // readOnly: true,
-    },
+    }
   ]
 }

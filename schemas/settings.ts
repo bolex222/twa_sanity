@@ -1,9 +1,11 @@
 import {Rule, SchemaValidationValue} from 'sanity'
+import { CogIcon } from '@sanity/icons'
 
 export default {
   name: 'settings',
   type: 'document',
   title: 'Settings',
+  icon: CogIcon,
   fields: [
     {
       name: 'title',
@@ -12,11 +14,11 @@ export default {
       validation: (rule: Rule): SchemaValidationValue => rule.required()
     },
     {
-      name: 'todoList',
-      type: 'array',
-      of: [
-        {type: 'todo'}
-      ]
-    }
+      name: 'defaultLanguage',
+      type: 'reference',
+      to: [{type: 'lang'}],
+      title: 'Default language',
+      validation: (rule: Rule): SchemaValidationValue => rule.required(),
+    },
   ]
 }

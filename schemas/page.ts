@@ -13,9 +13,10 @@ export default {
       description: 'The title of the page',
     },
     {
-      name: 'slug',
-      type: 'string',
-      title: 'Slug',
+      name: 'url',
+      type: 'reference',
+      to: [{type: 'urlPath'}],
+      title: 'Url',
       validation: (rule: Rule): SchemaValidationValue => rule.required(),
     },
     {
