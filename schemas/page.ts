@@ -27,9 +27,12 @@ export default {
       validation: (rule: Rule): SchemaValidationValue => rule.required(),
     },
     {
-      name: 'text',
-      type: 'text',
-      title: 'Text',
+      title: 'Body',
+      name: 'body',
+      type: 'array',
+      of: [
+        {type: 'heroSection'}
+      ]
     }
   ]
 }
